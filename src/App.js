@@ -16,7 +16,8 @@ import Account from "./pages/account/Account";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
-
+  const apiUrl = process.env.REACT_APP_API_URL;
+  
   const ProtectedRoute = ({ children }) => {
     const { user } = useContext(AuthContext)
     if (!user) {
