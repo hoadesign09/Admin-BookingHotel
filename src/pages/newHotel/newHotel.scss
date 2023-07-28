@@ -37,7 +37,16 @@
           display: flex;
           flex-wrap: wrap;
           gap: 30px;
-          justify-content: space-around;
+          justify-content: space-between;
+
+          .selectRooms {
+            width: 100%;
+
+            select{
+              width: 100%;
+              padding: 10px;
+            }
+          }
 
           .formInput {
             width: 40%;

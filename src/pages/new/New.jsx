@@ -23,7 +23,7 @@ const New = ({ inputs, title }) => {
         "https://api.cloudinary.com/v1_1/dfsarmr16/image/upload",
         data
       );
-        console.log(uploadRes.data)
+      
       const { url } = uploadRes.data;
 
       const newUser = {
@@ -37,7 +37,7 @@ const New = ({ inputs, title }) => {
     }
   };
 
-  console.log(info);
+  console.log(info);      
   return (
     <div className="new">
       <Sidebar />
