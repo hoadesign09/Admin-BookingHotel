@@ -10,9 +10,8 @@ const Datatable = ({columns}) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState();
-  const apiUrl = process.env.REACT_APP_API_URL;
 
-  const { data, loading, error } = useFetch(`${apiUrl}/${path}`);
+  const { data, loading, error } = useFetch(`/${path}`);
 
   useEffect(() => {
     setList(data)
@@ -59,7 +58,7 @@ const Datatable = ({columns}) => {
       </div>
       <DataGrid
         className="datagrid"
-        rows={list}
+        rows={data}
         columns={columns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}

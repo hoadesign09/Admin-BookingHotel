@@ -9,7 +9,6 @@ const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
 
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -33,7 +32,7 @@ const New = ({ inputs, title }) => {
         img: url,
       };
 
-      await axios.post(`${apiUrl}/auth/register`, newUser);
+      await axios.post("/auth/register", newUser);
     } catch (err) {
       console.log(err);
     }
