@@ -28,7 +28,7 @@ const AuthReducer = (state, action) => {
         loading: false,
         error: action.payload,
       };
-    case "LOGOUT":
+    case "LOGOUT": 
       return {
         user: null,
         loading: false,
@@ -46,6 +46,10 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
 
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -53,9 +57,11 @@ export const AuthContextProvider = ({ children }) => {
         loading: state.loading,
         error: state.error,
         dispatch,
+        logout,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
+  
