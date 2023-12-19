@@ -4,9 +4,31 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Widget = ({ type }) => {
   let data;
+
+  // const [usercount, setUserCount] = useState(null);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:8008/api/users/count");
+  //       setUserCount(response.data);
+  //     } catch (error) {
+  //       setError(error); 
+  //     }
+  //   };
+  //   fetchData();
+  //   return () => {
+  //   };
+  // }, []); 
+
+  // console.log(usercount)
 
   //temporary
   const amount = 100;
@@ -17,6 +39,7 @@ const Widget = ({ type }) => {
       data = {
         title: "USERS",
         isMoney: false,
+        linkto: "/users",
         link: "See all users",
         icon: (
           <PersonOutlinedIcon
@@ -85,7 +108,9 @@ const Widget = ({ type }) => {
         <span className="counter">
           {data.isMoney && "$"} {amount}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data.linkto} className="link-to">
+          <span className="link">{data.link}</span>
+        </Link>
       </div>
       <div className="right">
         <div className="percentage positive">

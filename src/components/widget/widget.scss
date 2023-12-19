@@ -25,10 +25,17 @@
       font-weight: 300;
     }
 
+    .link-to{
+      text-decoration: none;
+    }
+
+    .link-to:hover{
+      color: #6439ff;
+    }
+
     .link {
       width: max-content;
       font-size: 12px;
-      border-bottom: 1px solid gray;
     }
 
     .percentage {

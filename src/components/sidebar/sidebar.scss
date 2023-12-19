@@ -17,6 +17,50 @@
     }
   }
 
+  .modal-overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  .modal-buttons{
+    padding-top: 10px
+  }
+  
+  .btn-accept{
+    margin: 5px;
+    padding: 8px 16px;
+    border-radius: 15px;
+    background-color: #03bb09;
+    border: none;
+    color: white;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  .btn-denied{
+    margin: 5px;
+    padding: 8px 16px;
+    border-radius: 15px;
+    background-color: red;
+    border: none;
+    color: white;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
   hr {
     height: 0;
     border: 0.5px solid rgb(230, 227, 227);
@@ -52,6 +96,8 @@
           font-size: 18px;
           color: #7451f8;
         }
+      
+        
 
         span{
             font-size: 13px;
@@ -88,3 +134,4 @@
       }
   }
 }
+

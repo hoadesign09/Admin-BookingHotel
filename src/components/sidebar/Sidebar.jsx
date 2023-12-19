@@ -13,15 +13,31 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const { logout } = useContext(AuthContext);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleLogout = () => {
+    setShowConfirmation(true);
+  };
+
+  const confirmLogout = () => {
+    logout();
+  };
+
+  const cancelLogout = () => {
+    setShowConfirmation(false);
+  };
+
   return (
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">HoaDesign</span>
+          <span className="logo">Booking Dashboard</span>
         </Link>
       </div>
       <hr />
@@ -48,10 +64,10 @@ const Sidebar = () => {
             </li>
           </Link>
           <Link to="/rooms" style={{ textDecoration: "none" }}>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Rooms</span>
-          </li>
+            <li>
+              <CreditCardIcon className="icon" />
+              <span>Rooms</span>
+            </li>
           </Link>
           <li>
             <LocalShippingIcon className="icon" />
@@ -86,10 +102,21 @@ const Sidebar = () => {
               <span>Profile</span>
             </li>
           </Link>
-          <li>
+          <li onClick={handleLogout}>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>
+          {showConfirmation && (
+            <div className="modal-overlay">
+              <div className="modal">
+                <p>Bạn có chắc chắn muốn đăng xuất?</p>
+                <div className="modal-buttons">
+                  <button className="btn-accept" onClick={confirmLogout} >Đồng ý</button>
+                  <button className="btn-denied" onClick={cancelLogout} >Hủy</button>
+                </div>
+              </div>
+            </div>
+          )}
         </ul>
       </div>
       <div className="bottom">
