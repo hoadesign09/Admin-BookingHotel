@@ -11,25 +11,6 @@ import { useState, useEffect } from "react";
 const Widget = ({ type }) => {
   let data;
 
-  // const [usercount, setUserCount] = useState(null);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:8008/api/users/count");
-  //       setUserCount(response.data);
-  //     } catch (error) {
-  //       setError(error); 
-  //     }
-  //   };
-  //   fetchData();
-  //   return () => {
-  //   };
-  // }, []); 
-
-  // console.log(usercount)
-
   //temporary
   const amount = 100;
   const diff = 20;

@@ -13,6 +13,7 @@ import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
 import Account from "./pages/account/Account";
+import Log from "./pages/log/Log";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -100,6 +101,13 @@ function App() {
               <Route index element={
                 <ProtectedRoute>
                   <Account />
+                </ProtectedRoute>
+              } />
+            </Route>
+            <Route path="logs">
+              <Route index element={
+                <ProtectedRoute>
+                  <Log />
                 </ProtectedRoute>
               } />
             </Route>

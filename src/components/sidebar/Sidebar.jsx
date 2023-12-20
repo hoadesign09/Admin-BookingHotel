@@ -87,10 +87,13 @@ const Sidebar = () => {
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
             <span>System Health</span>
           </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-          </li>
+          <Link to="/logs" style={{ textDecoration: "none" }}>
+            <li>
+              <PsychologyOutlinedIcon className="icon" />
+              <span>Logs</span>
+            </li>
+          </Link>
+
           <li>
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
@@ -111,8 +114,12 @@ const Sidebar = () => {
               <div className="modal">
                 <p>Bạn có chắc chắn muốn đăng xuất?</p>
                 <div className="modal-buttons">
-                  <button className="btn-accept" onClick={confirmLogout} >Đồng ý</button>
-                  <button className="btn-denied" onClick={cancelLogout} >Hủy</button>
+                  <button className="btn-accept" onClick={confirmLogout}>
+                    Đồng ý
+                  </button>
+                  <button className="btn-denied" onClick={cancelLogout}>
+                    Hủy
+                  </button>
                 </div>
               </div>
             </div>
