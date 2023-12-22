@@ -80,7 +80,9 @@ const Sidebar = () => {
           </li>
           <li>
             <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
+            <Link to="/notifications" style={{ textDecoration: "none" }}>
+              <span>Notifications</span>
+            </Link>
           </li>
           <p className="title">SERVICE</p>
           <li>

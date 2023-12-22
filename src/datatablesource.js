@@ -82,4 +82,17 @@ export const roomColumns = [
     headerName: "Max People",
     width: 100,
   },
+]
+  export const notificationColumns = [
+    { field: "_id", headerName: "ID", width: 70 },
+    {
+      field: "title",
+      headerName: "Title",
+      width: 230,
+    },
+    {
+      field: "message",
+      headerName: "Message",
+      width: 200,
+    }
 ];

@@ -146,3 +146,17 @@ export const roomInputs = [
     placeholder: "2",
   },
 ];
+export const NotificationInputs = [
+  {
+    id: "title",
+    label: "Title",
+    type: "text",
+    placeholder: "We're have notify for you",
+  },
+  {
+    id: "message",
+    label: "Message",
+    type: "text",
+    placeholder: "How are you today?",
+  },
+];
