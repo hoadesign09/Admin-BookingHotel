@@ -7,7 +7,11 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" />
+          <img
+            className="cellImg"
+            src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
+            alt="avatar"
+          />
           {params.row.username}
         </div>
       );
@@ -82,17 +86,41 @@ export const roomColumns = [
     headerName: "Max People",
     width: 100,
   },
-]
-  export const notificationColumns = [
-    { field: "_id", headerName: "ID", width: 70 },
-    {
-      field: "title",
-      headerName: "Title",
-      width: 230,
-    },
-    {
-      field: "message",
-      headerName: "Message",
-      width: 200,
-    }
+];
+export const notificationColumns = [
+  { field: "_id", headerName: "ID", width: 70 },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 230,
+  },
+  {
+    field: "message",
+    headerName: "Message",
+    width: 200,
+  },
+];
+
+export const ticketColumns = [
+  { field: "_id", headerName: "ID", width: 70 },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 230,
+  },
+  {
+    field: "content",
+    headerName: "Content",
+    width: 200,
+  },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 200,
+  },
+  {
+    field: "user",
+    headerName: "UserId",
+    width: 200,
+  },
 ];

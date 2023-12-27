@@ -1,0 +1,133 @@
+
+  
+  .account-page {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 468px;
+  }
+  
+  .user-item {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 18px);
+    font-size: 16px;
+  }
+  
+  .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+  }
+  
+  .user-item[type="file"] {
+    margin-bottom: 0;
+  }
+  
+  .user-item[type="file"]::-webkit-file-upload-button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .user-item[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .user-item[type="file"]:hover {
+    border-color: #999;
+  }
+  
+  .user-item[type="file"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .user-item[type="file"]::file-selector-button {
+    margin: 0;
+  }
+  
+  button.user-item {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+  }
+  
+  button.user-item:hover {
+    background-color: #0056b3;
+  }
+  
+  button.user-item:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
+  
+  
+
+
+.ip-acc {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  /* Hover effect for inputs with class ip-acc */
+  .ip-acc:hover,
+  .ip-acc:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Placeholder style for inputs with class ip-acc */
+  .ip-acc::placeholder {
+    color: #aaa;
+  }
+  
+  /* Focus style for placeholder for inputs with class ip-acc */
+  .ip-acc:focus::placeholder {
+    color: transparent;
+  }
+  
+  /* Style for button with class btn-acc */
+  .btn-acc {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Hover effect for button with class btn-acc */
+  .btn-acc:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Active/focus style for button with class btn-acc */
+  .btn-acc:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+  }
+  

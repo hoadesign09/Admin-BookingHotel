@@ -1,26 +1,64 @@
 import React, { useState, useContext } from "react";
-import "./account.scss"
+import "./account.css";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { AuthContext } from './../../context/AuthContext';
-
+import { AuthContext } from "./../../context/AuthContext";
+import axios from "axios";
+import { useEffect } from "react";
 const Account = () => {
-  const { user, updateUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  const [editedUser, setEditedUser] = useState({ ...user });
+  const [file, setFile] = useState("");
+  const [info, setInfo] = useState({});
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEditedUser({ ...editedUser, [name]: value });
+  const handleChange = (e) => {
+    setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
+  useEffect(() => {
+    setInfo({
+      username: user.username || "",
+      email: user.email || "",
+      country: user.country || "",
+      phone: user.phone || "",
+      img: user.img || "",
+    });
+  }, [user]);
 
-  const handleImageChange = (e) => {
-    const imageFile = e.target.files[0];
-    setEditedUser({ ...editedUser, image: imageFile });
-  };
+  const handleClick = async (e) => {
+    e.preventDefault();
+    let imageUrl = info.img; // Giữ nguyên URL ảnh cũ
 
-  const handleUpdate = () => {
-    updateUser(editedUser);
+    if (file) {
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "upload");
+
+      try {
+        const uploadRes = await axios.post(
+          "https://api.cloudinary.com/v1_1/dfsarmr16/image/upload",
+          data
+        );
+
+        const { url } = uploadRes.data;
+        imageUrl = url; // Lấy URL của ảnh mới từ response
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    const updateUser = {
+      username: info.username,
+      email: info.email,
+      country: info.country,
+      phone: info.phone,
+      img: imageUrl, // Sử dụng URL ảnh mới hoặc cũ
+    };
+
+    try {
+      await axios.put(`/users/${user._id}`, updateUser);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -30,48 +68,61 @@ const Account = () => {
         <Navbar />
         <div className="account-page">
           <input
+            className="ip-acc"
             type="text"
             name="username"
-            value={editedUser.username}
-            onChange={handleInputChange}
+            id="username"
+            placeholder="username"
+            value={info.username}
+            onChange={handleChange}
           />
           <input
+            className="ip-acc"
             type="text"
             name="email"
-            value={editedUser.email}
-            onChange={handleInputChange}
+            id="email"
+            placeholder="email"
+            value={info.email}
+            onChange={handleChange}
           />
           <input
+            className="ip-acc"
             type="text"
-            name="country"
-            value={editedUser.country}
-            onChange={handleInputChange}
+            id="country"
+            placeholder="your country"
+            value={info.country}
+            onChange={handleChange}
           />
           <input
+            className="ip-acc"
             type="text"
             name="phone"
-            value={editedUser.phone}
-            onChange={handleInputChange}
+            id="phone"
+            placeholder="your phone"
+            value={info.phone}
+            onChange={handleChange}
           />
-          {editedUser.image && (
+          {user.image && (
             <img
-              src={URL.createObjectURL(editedUser.image)}
+              src={URL.createObjectURL(info.image)}
               alt="Avatar"
               style={{ width: "100px", height: "100px" }}
             />
           )}
-            <img
-              src={user.img}
-              alt="Avatar"
-              className="avatar"
+          <div className="user-img">
+            <img src={info.img} alt="Avatar" className="avatar" />
+
+            <input
+              className="ip-acc"
+              type="file"
+              id="file"
+              accept="image/*"
+              onChange={(e) => setFile(e.target.files[0])}
             />
-          
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-          <button onClick={handleUpdate}>Cập nhật thông tin</button>
+          </div>
+          <button className="btn-acc" onClick={handleClick}>
+            Cập nhật thông tin
+          </button>
         </div>
       </div>
     </div>

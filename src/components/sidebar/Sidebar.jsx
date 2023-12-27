@@ -76,7 +76,9 @@ const Sidebar = () => {
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
-            <span>Stats</span>
+            <Link to="/tickets" style={{ textDecoration: "none" }}>
+              <span>Tickets </span>
+            </Link>
           </li>
           <li>
             <NotificationsNoneIcon className="icon" />
